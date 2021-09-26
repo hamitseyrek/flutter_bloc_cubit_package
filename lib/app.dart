@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_cubit_package/counter_bloc/counter_bloc.dart';
 import 'package:flutter_bloc_cubit_package/counter_bloc/counter_event.dart';
 import 'package:flutter_bloc_cubit_package/counter_bloc/counter_state.dart';
+import 'package:flutter_bloc_cubit_package/theme_cubit/theme_cubit.dart';
 
 class MyAppHome extends StatelessWidget {
   const MyAppHome({Key? key}) : super(key: key);
@@ -67,6 +68,14 @@ class MyActions extends StatelessWidget {
           heroTag: 'decrease',
           onPressed: () {
             context.read<CounterBloc>().add(CounterDecrement());
+          },
+        ),
+        const SizedBox(height: 5),
+        FloatingActionButton(
+          child: const Icon(Icons.brightness_6),
+          heroTag: 'changeTheme',
+          onPressed: () {
+            context.read<ThemeCubit>().changeTheme();
           },
         ),
       ],
